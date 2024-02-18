@@ -93,4 +93,5 @@ package-lock.json
 
 style.css
 styles.css
-styles.css.map
+style.css.map
+style-rtl.css
