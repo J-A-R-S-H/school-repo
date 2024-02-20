@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages
  *
@@ -22,94 +23,94 @@ get_header();
 
 
 
-	<?php
-	$args = array(
-		'post_type' => 'fwd-staff',
-		'posts_per_page' => -1,
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'fwd-staff-category',
-				'field' => 'slug',
-				'terms' => 'administrative'
-			)
-		)
-	);
-	$query = new WP_Query($args);
+    <?php
+    $args = array(
+        'post_type' => 'fwd-staff',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'fwd-staff-category',
+                'field' => 'slug',
+                'terms' => 'admin'
+            )
+        )
+    );
+    $query = new WP_Query($args);
 
-	if ($query->have_posts()) {
-		// echo '<section class="web-works"><h2 class="web-header">' . esc_html__('Web Projects', 'fwd') . '</h2>';
-		while ($query->have_posts()) {
-			$query->the_post();
-			?>
-			<article>
-				<a href="<?php the_permalink(); ?>">
-					<h2>
-						<?php the_title(); ?>
-					</h2>
-					<?php the_post_thumbnail('medium'); ?>
-				</a>
-				<?php the_excerpt(); ?>
-			</article>
-			<?php
-		}
-		wp_reset_postdata();
-	}
-
-
-
-
-	// add seperator later
-	
-	$args = array(
-		'post_type' => 'fwd-staff',
-		'posts_per_page' => -1,
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'fwd-staff-category',
-				'field' => 'slug',
-				'terms' => 'faculty'
-			)
-		)
-	);
-
-	$query = new WP_Query($args);
-
-	if ($query->have_posts()) {
-		// echo '<section class="web-works"><h2 class="web-header">' . esc_html__('Web Projects', 'fwd') . '</h2>';
-		while ($query->have_posts()) {
-			$query->the_post();
-			?>
-			<article>
-				<a href="<?php the_permalink(); ?>">
-					<h2>
-						<?php the_title(); ?>
-					</h2>
-					<?php the_post_thumbnail('medium'); ?>
-				</a>
-				<?php the_excerpt(); ?>
-			</article>
-			<?php
-		}
-		wp_reset_postdata();
-	}
-
-	?>
+    if ($query->have_posts()) {
+        // echo '<section class="web-works"><h2 class="web-header">' . esc_html__('Web Projects', 'fwd') . '</h2>';
+        while ($query->have_posts()) {
+            $query->the_post();
+    ?>
+            <article>
+                <a href="<?php the_permalink(); ?>">
+                    <h2>
+                        <?php the_title(); ?>
+                    </h2>
+                    <?php the_post_thumbnail('medium'); ?>
+                </a>
+                <?php the_excerpt(); ?>
+            </article>
+        <?php
+        }
+        wp_reset_postdata();
+    }
 
 
 
-	<?php
-	while (have_posts()):
-		the_post();
 
-		get_template_part('template-parts/content-fwd-staff', 'page');
+    // add seperator later
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if (comments_open() || get_comments_number()):
-			comments_template();
-		endif;
+    $args = array(
+        'post_type' => 'fwd-staff',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'fwd-staff-category',
+                'field' => 'slug',
+                'terms' => 'faculty'
+            )
+        )
+    );
 
-	endwhile; // End of the loop.
-	?>
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        // echo '<section class="web-works"><h2 class="web-header">' . esc_html__('Web Projects', 'fwd') . '</h2>';
+        while ($query->have_posts()) {
+            $query->the_post();
+        ?>
+            <article>
+                <a href="<?php the_permalink(); ?>">
+                    <h2>
+                        <?php the_title(); ?>
+                    </h2>
+                    <?php the_post_thumbnail('medium'); ?>
+                </a>
+                <?php the_excerpt(); ?>
+            </article>
+    <?php
+        }
+        wp_reset_postdata();
+    }
+
+    ?>
+
+
+
+    <?php
+    while (have_posts()) :
+        the_post();
+
+        get_template_part('template-parts/content-fwd-staff', 'page');
+
+        // If comments are open or we have at least one comment, load up the comment template.
+        if (comments_open() || get_comments_number()) :
+            comments_template();
+        endif;
+
+    endwhile; // End of the loop.
+    ?>
 
 
 
