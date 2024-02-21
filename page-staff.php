@@ -14,7 +14,11 @@
  */
 
 get_header();
+
 ?>
+
+
+
 
 <main id="primary" class="site-main">
 
@@ -22,7 +26,7 @@ get_header();
 
 
 
-
+    <h2>Administrators</h2>
     <?php
     $args = array(
         'post_type' => 'fwd-staff',
@@ -42,25 +46,39 @@ get_header();
         while ($query->have_posts()) {
             $query->the_post();
     ?>
+
             <article>
-                <a href="<?php the_permalink(); ?>">
-                    <h2>
-                        <?php the_title(); ?>
-                    </h2>
-                    <?php the_post_thumbnail('medium'); ?>
-                </a>
+                <h3>
+                    <?php the_title(); ?>
+                </h3>
+                <?php the_post_thumbnail('medium'); ?>
                 <?php the_excerpt(); ?>
+
+                <?php
+                if (function_exists('get_field')) {
+                    if (get_field('staff_biography')) {
+                        the_field('staff_biography');
+                    }
+
+                    if (get_field('staff_course')) {
+                        echo '<h2>' . get_field('staff_course') . '</h2>';
+                    }
+
+
+                    if (get_field('staff_web')) {
+                        the_field('staff_web');
+                    }
+                }
+                ?>
             </article>
-        <?php
+    <?php
         }
         wp_reset_postdata();
     }
+    ?>
 
-
-
-
-    // add seperator later
-
+    <h2>Faculty</h2>
+    <?php
     $args = array(
         'post_type' => 'fwd-staff',
         'posts_per_page' => -1,
@@ -79,15 +97,27 @@ get_header();
         // echo '<section class="web-works"><h2 class="web-header">' . esc_html__('Web Projects', 'fwd') . '</h2>';
         while ($query->have_posts()) {
             $query->the_post();
-        ?>
+    ?>
             <article>
-                <a href="<?php the_permalink(); ?>">
-                    <h2>
-                        <?php the_title(); ?>
-                    </h2>
-                    <?php the_post_thumbnail('medium'); ?>
-                </a>
-                <?php the_excerpt(); ?>
+                <h3>
+                    <?php the_title(); ?>
+                </h3>
+                <?php the_post_thumbnail('medium'); ?>
+                <?php
+                if (function_exists('get_field')) {
+                    if (get_field('staff_biography')) {
+                        the_field('staff_biography');
+                    }
+
+                    if (get_field('staff_course')) {
+                        echo '<h2>' . get_field('staff_course') . '</h2>';
+                    }
+
+                    if (get_field('staff_web')) {
+                        the_field('staff_web');
+                    }
+                }
+                ?>
             </article>
     <?php
         }
