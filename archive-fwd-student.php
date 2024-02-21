@@ -22,7 +22,7 @@ get_header();
 			?>
 		</header><!-- .page-header -->
 
-	<?php
+		<?php
 		/* Start the Loop */
 
 
@@ -38,11 +38,16 @@ get_header();
 		if ($query->have_posts()) {
 			while ($query->have_posts()) {
 				$query->the_post();
-				echo "<a href='post-type" . get_the_ID() . "'>";
-				echo esc_html(get_the_title());
-				echo "</a>";
-				the_post_thumbnail('large');
+		?>
+				<article>
+					<a href="<?php the_permalink(); ?>">
+						<h3><?php the_title(); ?></h3>
+						<?php
+						the_post_thumbnail('large');
+						?>
+					</a>
 
+		<?php
 				the_excerpt();
 			}
 			wp_reset_postdata();
@@ -51,7 +56,7 @@ get_header();
 
 
 	endif;
-	?>
+		?>
 
 </main><!-- #main -->
 
