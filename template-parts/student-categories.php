@@ -1,12 +1,12 @@
 <?php
 $terms = get_terms(
     array(
-        'taxonomy' => 'staff-categories',
+        'taxonomy' => 'student-categories',
     )
 );
 if ($terms && !is_wp_error($terms)) : ?>
     <section>
-        <h2><?php esc_html_e('See The Staff', 'fwd'); ?></h2>
+        <h2><?php esc_html_e('See The Students', 'fwd'); ?></h2>
         <ul>
             <?php foreach ($terms as $term) : ?>
                 <li><a href="<?php echo get_term_link($term); ?>"><?php echo esc_html($term->name); ?></a></li>

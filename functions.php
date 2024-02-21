@@ -216,3 +216,50 @@ function fwd_scripts()
 	);
 }
 add_action('wp_enqueue_scripts', 'fwd_scripts');
+
+
+function wpb_change_title_text($title)
+{
+	$screen = get_current_screen();
+
+	if ('fwd-staff' == $screen->post_type) {
+		$title = 'Add staff name';
+	}
+
+
+	if ('fwd-student' == $screen->post_type) {
+		$title = 'Add Student name';
+	}
+
+
+	return $title;
+}
+
+add_filter('enter_title_here', 'wpb_change_title_text');
+
+function fwd_block_editor_templates()
+{
+
+	if (isset($_GET['post_type']) && 'fwd-student' == $_GET['post_type']) {
+		$post_type_object = get_post_type_object('fwd-student');
+		$post_type_object->template = array(
+			// define blocks here...
+			array(
+				'core/paragraph',
+				array(
+					'placeholder' => 'Add your paragraph here...'
+				)
+			),
+			array(
+				'core/button',
+				array(
+					'placeholder' => 'Add your link here...',
+				)
+			),
+
+		);
+		$post_type_object->template_lock = 'all';
+	}
+}
+
+add_action('init', 'fwd_block_editor_templates');
