@@ -66,7 +66,7 @@ get_header();
 
 
                     if (get_field('staff_web')) {
-                        the_field('staff_web');
+                        echo '<a href="' . esc_url(get_field('staff_web')) . '">' . "Instructor Website" . '</a>';
                     }
                 }
                 ?>
@@ -114,7 +114,7 @@ get_header();
                     }
 
                     if (get_field('staff_web')) {
-                        the_field('staff_web');
+                        echo '<a href="' . esc_url(get_field('staff_web')) . '">' . "Instructor Website" . '</a>';
                     }
                 }
                 ?>
