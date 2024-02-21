@@ -283,3 +283,5 @@ function fwd_excerpt_more($more)
 
 
 add_filter("excerpt_more", "fwd_excerpt_more");
+
+add_image_size("custom-image-23", 200, 300, true);

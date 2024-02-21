@@ -1,7 +1,7 @@
 <?php
 $terms = get_terms(
     array(
-        'taxonomy' => 'student-categories',
+        'taxonomy' => 'fwd-student-category',
     )
 );
 if ($terms && !is_wp_error($terms)) : ?>
