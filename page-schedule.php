@@ -24,23 +24,23 @@ get_header();
 
 	?>
 
-	<p>Weekly Course Schedule</p>
+	<p class="course-schedule">Weekly Course Schedule</p>
 
 	<?php
 	if (function_exists('get_field')) {
 		if (get_field("schedule")) {
-			echo '<table>';
-			echo '<tr>';
-			echo '<th>Date Schedule</th>';
-			echo '<th>Course Schedule</th>';
-			echo '<th>Instructor</th>';
+			echo '<table class="schedule">';
+			echo '<tr class"schedule-tr">';
+			echo '<th class="table-header-1">Date Schedule</th>';
+			echo '<th class="table-header-2">Course Schedule</th>';
+			echo '<th class="table-header-3">Instructor</th>';
 			echo '</tr>';
 
 			foreach (get_field("schedule") as $row) {
-				echo '<tr>';
-				echo '<td>' . $row['date_schedule'] . '</td>';
-				echo '<td>' . $row['course_schedule'] . '</td>';
-				echo '<td>' . $row['instructor'] . '</td>';
+				echo '<tr class"schedule-tr">';
+				echo '<td class="schedule-td">' . $row['date_schedule'] . '</td>';
+				echo '<td class="schedule-td">' . $row['course_schedule'] . '</td>';
+				echo '<td class="schedule-td">' . $row['instructor'] . '</td>';
 				echo '</tr>';
 			}
 

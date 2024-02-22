@@ -1,4 +1,42 @@
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+    border-collapse: collapse;
 }
+
+.schedule-td,
+.schedule-tr {
+    display: block;
+    padding: 1rem;
+    // background-color: grey;
+}
+
+tr:nth-of-type(odd){
+	background-color: #aca9a9;
+}
+
+
+
+.schedule-td, .table-header-1, .table-header-2, .table-header-3 {
+    display: block;
+    padding: 1rem;
+	color: black;
+}
+
+@media only screen and (min-width: 600px) {
+    .table-header-1, .table-header-2, .table-header-3,
+	.schedule-td {
+		display: table-cell;
+		width: 33.33%;
+		padding: 2rem;
+	}
+	.schedule-tr {
+		display: table-row;
+	}
+}
+
+
+
+
+
+
