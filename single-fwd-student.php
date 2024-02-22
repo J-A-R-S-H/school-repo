@@ -24,17 +24,17 @@ get_header();
 			</header><!-- .entry-header -->
 
 			<div class="entry-content">
-				<?php the_content(); ?>
-			</div><!-- .entry-content -->
 
-			<div class="entry-meta">
 				<?php
-				// Display the featured image if available
+
+
 				if (has_post_thumbnail()) {
 					the_post_thumbnail('large');
 				}
+				the_content();
+
 				?>
-			</div><!-- .entry-meta -->
+			</div><!-- .entry-content -->
 
 			<div class="related-students">
 				<h2><?php esc_html_e('Related Students', 'school-theme'); ?></h2>
@@ -53,8 +53,8 @@ get_header();
 					// Query other student posts in the same taxonomy term
 					$args = array(
 						'post_type' => 'fwd-student',
-						'posts_per_page' => 5, // Adjust as needed
-						'post__not_in' => array(get_the_ID()), // Exclude current post
+						'posts_per_page' => -1,
+						'post__not_in' => array(get_the_ID()),
 						'tax_query' => array(
 							array(
 								'taxonomy' => 'fwd-student-category',
@@ -63,11 +63,11 @@ get_header();
 							),
 						),
 					);
-					$related_query = new WP_Query($args);
+					$query = new WP_Query($args);
 
-					if ($related_query->have_posts()) {
-						while ($related_query->have_posts()) {
-							$related_query->the_post();
+					if ($query->have_posts()) {
+						while ($query->have_posts()) {
+							$query->the_post();
 					?>
 							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 					<?php
@@ -78,7 +78,7 @@ get_header();
 					}
 					?>
 				</ul>
-			</div><!-- .related-students -->
+			</div>
 
 		</article><!-- #post-<?php the_ID(); ?> -->
 
