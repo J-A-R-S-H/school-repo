@@ -1,32 +1,30 @@
 .no-sidebar {
-
-	.site {
-		display: grid;
-		grid-template-columns: auto;
-		grid-template-areas:
-			"header"
-			"main"
-			"footer";
-	}
+  .site {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
 }
-
 
 .alignwide,
 .alignfull {
-	display: block;
-	width: 100vw;
-	max-width: 100vw;
-	margin: 2rem calc(50% - 50vw);
+  display: block;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 2rem calc(50% - 50vw);
 }
 
 .alignwide {
-	width: auto;
+  width: auto;
 }
 
 @media only screen and (min-width: 1300px) {
-	.alignwide {
-		max-width: 1300px;
-		margin-left: -150px;
-		margin-right: -150px;
-	}
+  .alignwide {
+    max-width: 1300px;
+    margin-left: -150px;
+    margin-right: -150px;
+  }
 }
