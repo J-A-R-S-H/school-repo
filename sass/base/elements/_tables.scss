@@ -21,6 +21,7 @@ tr:nth-of-type(odd){
     display: block;
     padding: 1rem;
 	color: black;
+    text-align: center;
 }
 
 @media only screen and (min-width: 600px) {
@@ -32,6 +33,7 @@ tr:nth-of-type(odd){
 	}
 	.schedule-tr {
 		display: table-row;
+       
 	}
 }
 
