@@ -42,10 +42,6 @@
 
   li {
     position: relative;
-
-    &:hover > a,
-    &.focus > a {
-    }
   }
 
   a {
@@ -104,7 +100,7 @@
 }
 
 .admin-bar .site-header {
-  top: 46px;
+  top: 0;
 }
 
 @media screen and (min-width: 48.875em) {
@@ -269,7 +265,6 @@
 // Footer
 
 .site-footer {
-  display: flex;
   background-color: #333;
   margin-top: 20px;
   padding: 1rem;
@@ -287,6 +282,11 @@
   text-decoration: none;
 }
 
+.site-footer nav .menu ul {
+  padding: 0;
+  margin: 0;
+}
+
 .site-footer a:hover,
 .site-footer a:focus,
 .site-footer a:active {
@@ -296,6 +296,7 @@
 .site-footer nav ul {
   list-style-type: none;
   margin: 0;
+  text-align: center;
 }
 
 @media screen and (min-width: 62.5em) {
