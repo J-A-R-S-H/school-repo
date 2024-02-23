@@ -22,3 +22,10 @@ a {
     outline: 0;
   }
 }
+
+.wp-block-button .wp-block-button__link {
+  color: white;
+  &:visited {
+    color: white;
+  }
+}

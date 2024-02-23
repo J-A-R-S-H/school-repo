@@ -49,7 +49,7 @@ get_header();
 						<a href="<?php the_permalink(); ?>">
 							<h3><?php the_title(); ?></h3>
 							<?php
-							the_post_thumbnail('large');
+							the_post_thumbnail('custom-image-23', array('class' => 'alignleft'));
 							?>
 						</a>
 						<?php
@@ -64,7 +64,7 @@ get_header();
 	<?php
 		endif;
 	endif;
-	?>
+
 
 	?>
 

@@ -33,13 +33,11 @@ get_header();
 	?>
 
 	<section class="home-page-blog">
-		<h2>
 
-		</h2>
 		<?php
 		$args = array(
 			'post_type' => 'post',
-			'posts_per_page' => 4,
+			'posts_per_page' => 3,
 			'orderby' => 'date',
 			'order' => 'DESC',
 		);
@@ -48,20 +46,15 @@ get_header();
 			while ($blog_query->have_posts()) {
 				$blog_query->the_post(); //if you put posts it will cause an infinite loop
 		?>
-				<article>
 
-					<a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail('large'); ?>
-						<!-- change image sizes later -->
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail('large'); ?>
 
-						<h3>
-							<?php the_title(); ?>
-						</h3>
-						<p>
-							<?php echo get_the_date(); ?>
-						</p>
-					</a>
-				</article>
+					<h3>
+						<?php the_title(); ?>
+					</h3>
+
+				</a>
 		<?php
 
 			}

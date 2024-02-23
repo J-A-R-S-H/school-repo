@@ -241,7 +241,7 @@ function fwd_block_editor_templates()
 {
 
 	if (isset($_GET['post_type']) && 'fwd-student' == $_GET['post_type']) {
-		$post_type_object = get_post_type_object('page');
+		$post_type_object = get_post_type_object('fwd-student');
 		$post_type_object->template = array(
 			// define blocks here...
 			array(
@@ -266,22 +266,8 @@ add_action('init', 'fwd_block_editor_templates');
 
 
 
-function fwd_excerpt_length($length)
-{
-	return 20;
-}
 
 
-add_filter('excerpt_length', 'fwd_excerpt_length', 999);
 
-function fwd_excerpt_more($more)
-{
-
-	$more = '... <a class="read-more" href="' . esc_url(get_permalink()) . '">Read about about the Student</a>';
-	return $more;
-}
-
-
-add_filter("excerpt_more", "fwd_excerpt_more");
 
 add_image_size("custom-image-23", 200, 300, true);

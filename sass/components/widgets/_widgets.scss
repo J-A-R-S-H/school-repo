@@ -1,8 +1,22 @@
 .widget {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 
-	// Make sure select elements fit in widgets.
-	select {
-		max-width: 100%;
-	}
+  // Make sure select elements fit in widgets.
+  select {
+    max-width: 100%;
+  }
+}
+.widget-area ul {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+@media only screen and (min-width: 768px) {
+  .widget-area {
+    display: flex;
+    justify-content: space-between;
+  }
+  .widget {
+    width: 20%;
+  }
 }

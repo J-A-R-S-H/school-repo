@@ -26,6 +26,7 @@ get_header();
 
 
     <section class="staff-wrapper">
+        <h1>Staff</h1>
         <h2>Administrators</h2>
         <?php
         $args = array(
@@ -157,5 +158,4 @@ get_header();
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

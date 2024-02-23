@@ -1,15 +1,15 @@
 //Pages
 @import "pages/staff";
 @import "pages/schedule";
+@import "pages/home";
 
 //Posts
+
+//Archives
+@import "archives/student-archive";
+
 .sticky {
   display: block;
-}
-
-.post,
-.page {
-  margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {
@@ -25,4 +25,9 @@
 .page-links {
   clear: both;
   margin: 0 0 1.5em;
+}
+
+.post a img {
+  max-height: 350px;
+  object-fit: cover;
 }
